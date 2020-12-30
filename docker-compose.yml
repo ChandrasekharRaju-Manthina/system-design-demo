@@ -11,12 +11,20 @@ services:
     # expose ports without publishing them to the host machine
     expose:
       - 8080
+    links:
+      - memcached
+    depends_on:
+      - memcached
   node2:
     build: .
     ports:
       - "8081:8080"
     expose:
       - 8080
+    links:
+      - memcached
+    depends_on:
+      - memcached
   lb:
     # image to fetch from docker hub
     build:
@@ -31,3 +39,7 @@ services:
     depends_on:
       - node1
       - node2
+  memcached:
+    image: memcached:1.6.9-alpine
+    expose:
+      - 11211

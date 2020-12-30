@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "a594e75f-dc8b-4f89-8cd1-e0976cb6e777",
+		"name": "System design demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Memcached",
+			"item": [
+				{
+					"name": "Set key",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\" : \"name\",\n    \"value\" : \"siva1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:{{port}}//memcached",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"",
+								"memcached"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:{{port}}/memcached/name",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"memcached",
+								"name"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Others",
+			"item": [
+				{
+					"name": "Test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:{{port}}//test",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
