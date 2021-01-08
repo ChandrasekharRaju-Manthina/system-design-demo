@@ -12,9 +12,11 @@ services:
     expose:
       - 8080
     links:
-      - memcached
+      - memcached1
+      - memcached2
     depends_on:
-      - memcached
+      - memcached1
+      - memcached2
   node2:
     build: .
     ports:
@@ -22,9 +24,11 @@ services:
     expose:
       - 8080
     links:
-      - memcached
+      - memcached1
+      - memcached2
     depends_on:
-      - memcached
+      - memcached1
+      - memcached2
   lb:
     # image to fetch from docker hub
     build:
@@ -35,11 +39,15 @@ services:
       - node2
     ports:
       - "80:80"
-      - "9000:9000"
+      - "9001:9000"
     depends_on:
       - node1
       - node2
-  memcached:
+  memcached1:
     image: memcached:1.6.9-alpine
     expose:
       - 11211
+  memcached2:
+     image: memcached:1.6.9-alpine
+     expose:
+       - 11211

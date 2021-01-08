@@ -1,3 +1,7 @@
 app:
   memcached:
-    host: localhost
+    host: localhost:11211
+
+#logging:
+#  level:
+#    net.rubyeye: DEBUG
